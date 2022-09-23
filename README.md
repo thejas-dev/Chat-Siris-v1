@@ -1,27 +1,50 @@
-# Next.js + Tailwind CSS Example
+# Chat-Siris-v1 
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+[chat-siris-v1](https://chat-siris-v1.vercel.app)
 
-## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Chatting Web Application With Media Sharing Facility .... Google Authentication and Encrypted Media Transfer... Responsive UI design Powered By Tailwind CSS... 
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Google Authentication
 
-## How to use
+Google Authentication for Authenticate .... Automatic Registration of Account and Automatic Login.. No need to Enter Crediential Every Time You ReEnter...
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Media Sharing Feature
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Using Lamejs with `mic-recorder-to-mp3` library For Voice Message Option and Recording Audio from Webapp to Base64 ENCODED.
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Image && Gif Sharing Feature With Fully Encrypted Data Transfer... 
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Realtime Message/Media RECIEVING && SENDING
+
+Using Socket.io For Client & Server Interaction... For Backend Server Source Code Visit our Chat-Siris-Server Repository...
+
+## Skeleton
+<li>
+	<ul>JSX</ul>
+</li>
+
+## Muscle && Flesh
+<li>
+	<ul>Tailwind CSS</ul>
+	<ul>Styled Components</ul>
+</li>
+
+## Brain && Heart
+<li>
+	<ul>Next JS</ul>
+	<ul>Next-Auth</ul>
+</li>
+
+## Mouth
+<li>
+	<ul>Socket.io</ul>
+</li>
+
+## Backbone
+<li>
+	<ul>Node JS</ul>
+	<ul>Express JS</ul>
+</li>
+

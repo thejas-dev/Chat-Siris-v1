@@ -1,14 +1,45 @@
-import xw from 'xwind'
-import ButtonReact from '../components/ButtonReact'
-import ButtonStyled from '../components/ButtonStyled'
+import {useEffect} from 'react'
+import {useRouter} from 'next/router'
+import {getSession,useSession} from 'next-auth/react'
+import Home from '../components/Home'
 
-const Index = () => (
-  <div css={xw`grid justify-center items-center h-screen space-y-20`}>
-    <div css={xw`space-y-20`}>
-      <ButtonReact>@emotion/react</ButtonReact>
-      <ButtonStyled>@emotion/styled</ButtonStyled>
-    </div>
-  </div>
-)
+const Index = () => {
+    const router = useRouter();
+  	
+  	const {data:session} = useSession();
+   
+  	useEffect(()=>{
+      
+        if(!localStorage.getItem('chat-siris-session')){
+          router.push('/login')
+      }
+    
+    
+  },[session])
+ 
 
-export default Index
+
+
+  return(
+  	<div>
+  		
+       <Home session={session} />
+  	</div>
+	)
+
+  }
+
+export default Index;
+
+
+
+export async function getServerSideProps(context){
+  const session = await getSession();
+
+  return{
+    props:{
+      session,
+    }
+  }
+
+}
