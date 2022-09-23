@@ -1,4 +1,4 @@
-export const host = process.env.NEXT_PUBLIC_HOST;
+export const host = "https://chat-siris-server.herokuapp.com";
 
 export const deleteBackgroundRoute = `${host}/api/auth/deletebackground`;
 export const changeNameRoute = `${host}/api/auth/changeName`;
