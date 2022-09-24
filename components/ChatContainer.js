@@ -28,7 +28,7 @@ align-items:center;
 grid-template-columns:90% 10%;
 overflow:hidden;
 @media only screen and (max-width:768px){
-	height:11vh;
+	height:9vh;
 }
 .box{
 	display:flex;
