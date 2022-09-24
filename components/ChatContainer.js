@@ -169,32 +169,45 @@ export default function ChatContainer() {
 		location.reload()
 	}
 
-	useEffect(()=>{
-		if(path2.length>0){
-			 if(checked){
-				toast.error("Please Try Again!")
-				setChecked(false);
-				setPath2('');
-			}else{
-				// console.log("ram")
-				// setTimeout(function() {
-				// 	console.log("try again")
-					const image_input = document.querySelector('#file2');
-					if(image_input){
-						image_input.addEventListener('change',()=>{
-							const reader = new FileReader();
+	// useEffect(()=>{
+	// 	if(path2.length>0){
+	// 		 if(checked){
+	// 			toast.error("Please Try Again!")
+	// 			setChecked(false);
+	// 			setPath2('');
+	// 		}else{
+	// 			// console.log("ram")
+	// 			// setTimeout(function() {
+	// 			// 	console.log("try again")
+	// 				const image_input = document.querySelector('#file2');
+	// 				if(image_input){
+	// 					image_input.addEventListener('change',()=>{
+	// 						const reader = new FileReader();
 						
-							reader.addEventListener('load',()=>{
-								let uploaded_image = reader.result;
-								setUrl2(uploaded_image)
-							});
-							reader.readAsDataURL(image_input.files[0]);
-						})
-					}
-			// 	}, 2000);				
-			}
-		 }
-	},[path2])
+	// 						reader.addEventListener('load',()=>{
+	// 							let uploaded_image = reader.result;
+	// 							setUrl2(uploaded_image)
+	// 						});
+	// 						reader.readAsDataURL(image_input.files[0]);
+	// 					})
+	// 				}
+	// 		// 	}, 2000);				
+	// 		}
+	// 	 }
+	// },[path2])
+
+	const url2Setter = () =>{
+		if(path2.length>0){
+			const image_input = document.querySelector('#file2');
+			const reader = new FileReader();
+
+			reader.addEventListener('load',()=>{
+				let uploaded_image = reader.result;
+				setUrl2(uploaded_image)
+			});
+			reader.readAsDataURL(image_input.files[0]);
+		}
+	}
 
 
 	useEffect(()=>{
@@ -285,7 +298,9 @@ export default function ChatContainer() {
 					<div className={`ml-3 ${loader ? "animate-pulse" : ''} `} >
 					<BiPhotoAlbum className="h-7 w-7 text-green-500 hover:scale-110 transition duration-400 ease-in-out"/>
 					</div>
-					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" value={path2} onChange={(e)=>setPath2(e.target.value)} />
+					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" value={path2} onChange={(e)=>{
+						url2Setter();
+					}} />
 					<h2 className="text-md text-white font-semibold ">Change Background Image /</h2>
 					{
 						loader && <AiOutlineLoading3Quarters className="h-8 w-8 animate-spin text-orange-500"/>
