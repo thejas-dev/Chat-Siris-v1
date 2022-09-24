@@ -24,14 +24,14 @@ const Header=Styled.div`
 background-color:#e34bb0;
 height:13vh;
 position:fixed;
-top:0;
-width:100%:
+width:75%;
 display:grid;
 align-items:center;
 grid-template-columns:90% 10%;
 overflow:hidden;
 @media only screen and (max-width:768px){
 	height:9vh;
+	width:100%;
 }
 .box{
 	display:flex;
@@ -354,7 +354,7 @@ export default function ChatContainer() {
 				<div className="flex relative justify-center flex-col items-center " > 
 					<BiMenuAltLeft 
 					onClick={()=>sideBar()}
-					className="absolute md:hidden h-7 cursor-pointer w-7 text-blue-700 top-0 left-0" />
+					className="absolute md:hidden h-7 cursor-pointer w-7 text-blue-700 top-[9vh] left-0" />
 					<img src={robot.src} alt="" />
 					<h1 className="text-2xl m-2 text-center flex-wrap font-semibold text-slate-700">Welcome <span className="
 					text-blue-700" >{currentUser?.username}</span> Tap on Any Chat to Start Texting</h1>
