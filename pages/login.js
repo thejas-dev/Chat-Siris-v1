@@ -2,9 +2,10 @@ import {signIn,useSession,getProviders,getSession} from 'next-auth/react'
 import { useRouter } from 'next/router'
 import {useEffect} from 'react'
 
-export default function login({providers,session}) {
+export default function login({providers}) {
 	// body...
 	const router = useRouter();
+	const {data:session} = useSession();
 	const id = Object.values(providers).map((provider)=>provider.id)
 
 	console.log(session)
