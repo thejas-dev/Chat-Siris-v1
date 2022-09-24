@@ -230,7 +230,6 @@ export default function ChatContainer() {
 				    ]
 					}).then(response => {
 					    uploadBackground(response.url)
-					    setLoader(false)
 					}).catch(error => {
 					    console.log(error);
 					});
