@@ -294,7 +294,7 @@ useEffect(()=>{
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-500  left-0 transition duration-700 ease-in-out `} />
+				className={`md:hidden fixed h-9 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-9 text-white left-0 transition duration-700 ease-in-out `} />
 			<br/><br/><br/>
 			<Container>
 			
@@ -315,9 +315,9 @@ useEffect(()=>{
 							:
 							<div className= {`rounded-3xl shadow-xl
 							${message.fromSelf ? "text-slate-700 bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l from-[#e34bb0] to-[#f23081] border-green-600"} 
-							p-[8px] m-2	border-2 max-w-sm md:max-w-2xl md:p-2
+							p-[2px] m-2	border-2 max-w-sm md:max-w-2xl md:p-2
 							`}>
-							<img className="rounded-3xl" src={message.message} alt='.' />
+							<img className="rounded-3xl" src={message.message} alt='' />
 							</div>
 
 							: <div className={`rounded-3xl shadow-xl
