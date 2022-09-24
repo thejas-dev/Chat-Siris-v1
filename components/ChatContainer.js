@@ -25,6 +25,7 @@ background-color:#e34bb0;
 height:13vh;
 position:fixed;
 width:75%;
+z-index:1;
 display:grid;
 align-items:center;
 grid-template-columns:90% 10%;
@@ -351,7 +352,7 @@ export default function ChatContainer() {
 					</div>
 
 				</Header>
-				<div className="flex relative justify-center flex-col items-center " > 
+				<div className="flex min-h-screen relative justify-center flex-col items-center " > 
 					<BiMenuAltLeft 
 					onClick={()=>sideBar()}
 					className="absolute md:hidden h-7 cursor-pointer w-7 text-blue-700 top-[9vh] left-0" />
