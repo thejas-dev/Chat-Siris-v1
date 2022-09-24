@@ -10,7 +10,7 @@ const Index = () => {
    
   	useEffect(()=>{
       
-        if(!localStorage.getItem('chat-siris-session')){
+        if(!session){
           router.push('/login')
       }
     

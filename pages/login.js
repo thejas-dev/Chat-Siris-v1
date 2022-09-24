@@ -14,7 +14,7 @@ export default function login({providers}) {
 			localStorage.setItem('chat-siris-session',JSON.stringify(session.user.name))
 			router.push('/');
 		}
-	},[])
+	},[session])
 
 	return(
 		<div className="bg-cover h-screen w-full flex bg-[url('https://ik.imagekit.io/d3kzbpbila/bg_1sOh-7j7e.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1662823467165')]">
