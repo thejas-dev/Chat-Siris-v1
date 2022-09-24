@@ -355,7 +355,7 @@ export default function ChatContainer() {
 				<div className="flex min-h-screen relative justify-center flex-col items-center " > 
 					<BiMenuAltLeft 
 					onClick={()=>sideBar()}
-					className={`md:hidden h-7 ${reveal ? "hidden" : "fixed" } cursor-pointer w-7 text-blue-700 top-[9vh] left-0`} />
+					className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-700  left-0`} />
 					<img src={robot.src} alt="" />
 					<h1 className="text-2xl m-2 text-center flex-wrap font-semibold text-slate-700">Welcome <span className="
 					text-blue-700" >{currentUser?.username}</span> Tap on Any Chat to Start Texting</h1>

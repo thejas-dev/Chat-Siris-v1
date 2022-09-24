@@ -294,11 +294,11 @@ useEffect(()=>{
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className={`md:hidden h-7 ${reveal ? "hidden" : "fixed" } cursor-pointer w-7 text-blue-700 top-[9vh] left-0`} />
+				className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-700  left-0 transition duration-700 ease-in-out `} />
 			
 			<Container>
-			<br/><br/><br/>
-			<div className="chats flex flex-col ">
+			
+			<div className="chats flex flex-col mt-7">
 				{messages?.map((message,index)=>{
 					return(
 					<div ref={scrollRef}>
