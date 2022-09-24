@@ -23,7 +23,7 @@ export default function login({providers}) {
 					className="w-[20rem]"
 					alt="..."/>
 					<button
-					onClick={()=>signIn()} 
+					onClick={()=>signIn(id,{callbackUrl:'/'})} 
 					className="bg-blue-500 rounded-full p-5 mt-5 text-white hover:scale-110
 					font-semibold transition ease-in-out duration-300" > 
 						Login With {Object.values(providers).map((provider)=>provider.name)}
