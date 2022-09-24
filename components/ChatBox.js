@@ -295,10 +295,9 @@ useEffect(()=>{
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
 				className="fixed md:hidden h-7 cursor-pointer w-7 text-blue-700 top-[9vh] left-0" />
-			<br/>
-			<br/>
-			<br/>
+			
 			<Container>
+			<br/><br/><br/>
 			<div className="chats flex flex-col ">
 				{messages?.map((message,index)=>{
 					return(
