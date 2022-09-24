@@ -294,7 +294,7 @@ useEffect(()=>{
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className="fixed md:hidden h-7 cursor-pointer w-7 text-blue-700 top-[9vh] left-0" />
+				className={`md:hidden h-7 ${reveal ? "hidden" : "fixed" } cursor-pointer w-7 text-blue-700 top-[9vh] left-0`} />
 			
 			<Container>
 			<br/><br/><br/>
