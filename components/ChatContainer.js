@@ -170,15 +170,15 @@ export default function ChatContainer() {
 	}
 
 	useEffect(()=>{
-		if(path2.length>0){
+		// if(path2.length>0){
 			// if(checked){
 			// 	toast.error("Please Try Again!")
 			// 	setChecked(false);
 			// 	setPath2('');
 			// }
-			console.log("ram")
-			setTimeout(function() {
-				console.log("try again")
+			// console.log("ram")
+			// setTimeout(function() {
+			// 	console.log("try again")
 				const image_input = document.querySelector('#file2');
 				image_input.addEventListener('change',()=>{
 					const reader = new FileReader();
@@ -189,8 +189,8 @@ export default function ChatContainer() {
 					});
 					reader.readAsDataURL(image_input.files[0]);
 				})				
-			}, 2000);
-		}
+		// 	}, 2000);
+		// }
 	},[path2])
 
 
