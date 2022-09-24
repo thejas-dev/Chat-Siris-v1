@@ -284,7 +284,7 @@ export default function ChatContainer() {
 					<div className={`ml-3 ${loader ? "animate-pulse" : ''} `} >
 					<BiPhotoAlbum className="h-7 w-7 text-green-500 hover:scale-110 transition duration-400 ease-in-out"/>
 					</div>
-					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" onChange={(e)=>setPath2(e.target.value)} />
+					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" value={path2} onChange={(e)=>setPath2(e.target.value)} />
 					<h2 className="text-md text-white font-semibold ">Change Background Image /</h2>
 					{
 						loader && <AiOutlineLoading3Quarters className="h-8 w-8 animate-spin text-orange-500"/>
