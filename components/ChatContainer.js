@@ -171,11 +171,11 @@ export default function ChatContainer() {
 
 	useEffect(()=>{
 		if(path2.length>0){
-			if(checked){
-				toast.error("Please Try Again!")
-				setChecked(false);
-				setPath2('');
-			}
+			// if(checked){
+			// 	toast.error("Please Try Again!")
+			// 	setChecked(false);
+			// 	setPath2('');
+			// }
 			const image_input = document.querySelector('#file2');
 			image_input.addEventListener('change',()=>{
 				const reader = new FileReader();
