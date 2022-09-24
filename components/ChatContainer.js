@@ -176,6 +176,7 @@ export default function ChatContainer() {
 			// 	setChecked(false);
 			// 	setPath2('');
 			// }
+			console.log("ram")
 			const image_input = document.querySelector('#file2');
 			image_input.addEventListener('change',()=>{
 				const reader = new FileReader();
