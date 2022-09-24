@@ -178,6 +178,7 @@ export default function ChatContainer() {
 			// }
 			console.log("ram")
 			setTimeout(function() {
+				console.log("try again")
 				const image_input = document.querySelector('#file2');
 				image_input.addEventListener('change',()=>{
 					const reader = new FileReader();
