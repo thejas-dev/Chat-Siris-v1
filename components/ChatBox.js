@@ -294,7 +294,7 @@ useEffect(()=>{
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className="sticky md:hidden h-7 cursor-pointer w-7 text-blue-700 top-0 left-0" />
+				className="sticky md:hidden h-7 cursor-pointer w-7 text-blue-700 top-[9vh] left-0" />
 			<Container>
 			<div className="chats flex flex-col ">
 				{messages?.map((message,index)=>{
