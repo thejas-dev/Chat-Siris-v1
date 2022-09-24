@@ -299,6 +299,7 @@ export default function ChatContainer() {
 					<BiPhotoAlbum className="h-7 w-7 text-green-500 hover:scale-110 transition duration-400 ease-in-out"/>
 					</div>
 					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" value={path2} onChange={(e)=>{
+						setPath2(e.target.value);
 						url2Setter();
 					}} />
 					<h2 className="text-md text-white font-semibold ">Change Background Image /</h2>
