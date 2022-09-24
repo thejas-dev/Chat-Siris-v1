@@ -25,6 +25,7 @@ background-color:#e34bb0;
 height:13vh;
 position:fixed;
 top:0;
+width:100%:
 display:grid;
 align-items:center;
 grid-template-columns:90% 10%;
