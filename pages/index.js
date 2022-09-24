@@ -15,7 +15,7 @@ const Index = () => {
       }
     
     
-  },[session])
+  },[])
  
 
 
@@ -34,7 +34,7 @@ export default Index;
 
 
 export async function getServerSideProps(context){
-  const session = await getSession();
+  const session = await getSession(context);
 
   return{
     props:{
