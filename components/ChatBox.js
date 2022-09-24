@@ -290,11 +290,11 @@ useEffect(()=>{
 	      </Backdrop>
 		<div className="relative h-[100vh] overflow-x-hidden overflow-scroll" >
 			{
-				loader && <AiOutlineLoading3Quarters className="h-8 w-8 fixed m-3 mt-7 left-1 top-[11vh] animate-spin text-xl font-semibold text-orange-500"/>
+				loader && <AiOutlineLoading3Quarters className="h-8 w-8 fixed m-3 mt-7 left-0 top-[11vh] animate-spin text-xl font-semibold text-orange-500"/>
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className={`md:hidden fixed h-9 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-9 text-white left-0 transition duration-700 ease-in-out `} />
+				className={`md:hidden fixed h-8 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-8 text-white left-0 transition duration-700 ease-in-out `} />
 			<br/><br/><br/>
 			<Container>
 			
