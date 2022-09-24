@@ -280,10 +280,10 @@ export default function ChatContainer() {
 					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" onChange={(e)=>setPath2(e.target.value)} />
 					<h2 className="text-xl text-white font-semibold ">Change Background Image /</h2>
 					{
-						loader && <AiOutlineLoading3Quarters className="h-8 w-8 animate-spin text-blue-500"/>
+						loader && <AiOutlineLoading3Quarters className="h-8 w-8 animate-spin text-orange-500"/>
 					}
 				</label>
-				<span className={`text-blue-500 ${loader ? "hidden" : ""}
+				<span className={`text-orange-500 ${loader ? "hidden" : ""}
 					hover:scale-120 transition duration-400 text-xl font-semibold ease-in-out`} onClick={resetBackground}><button>Reset</button></span> 
 
 			</div>
@@ -355,7 +355,7 @@ export default function ChatContainer() {
 				<div className="flex min-h-screen relative justify-center flex-col items-center " > 
 					<BiMenuAltLeft 
 					onClick={()=>sideBar()}
-					className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-700  left-0`} />
+					className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-700  left-0 transition duration-700 ease-in-out `} />
 					<img src={robot.src} alt="" />
 					<h1 className="text-2xl m-2 text-center flex-wrap font-semibold text-slate-700">Welcome <span className="
 					text-blue-700" >{currentUser?.username}</span> Tap on Any Chat to Start Texting</h1>
