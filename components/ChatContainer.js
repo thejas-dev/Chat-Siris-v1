@@ -197,7 +197,7 @@ export default function ChatContainer() {
 	// },[path2])
 
 	const url2Setter = () =>{
-		if(path2.length>0){
+		
 			const image_input = document.querySelector('#file2');
 			const reader = new FileReader();
 
@@ -205,8 +205,10 @@ export default function ChatContainer() {
 				let uploaded_image = reader.result;
 				setUrl2(uploaded_image)
 			});
-			reader.readAsDataURL(image_input.files[0]);
-		}
+			if(image_input){
+				reader.readAsDataURL(image_input.files[0]);
+			}
+		
 	}
 
 
