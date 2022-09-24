@@ -23,6 +23,8 @@ import {io} from 'socket.io-client'
 const Header=Styled.div`
 background-color:#e34bb0;
 height:13vh;
+position:fixed;
+top:0;
 display:grid;
 align-items:center;
 grid-template-columns:90% 10%;
