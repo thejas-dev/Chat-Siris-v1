@@ -290,7 +290,7 @@ useEffect(()=>{
 	      </Backdrop>
 		<div className="relative h-[100vh] overflow-x-hidden overflow-scroll" >
 			{
-				loader && <AiOutlineLoading3Quarters className="h-8 w-8 fixed m-3 mt-7 left-2 top-[12vh] animate-spin text-orange-500"/>
+				loader && <AiOutlineLoading3Quarters className="h-8 w-8 fixed m-3 mt-7 left-1 top-[11vh] animate-spin text-xl font-semibold text-orange-500"/>
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
