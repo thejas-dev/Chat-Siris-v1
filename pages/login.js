@@ -2,10 +2,9 @@ import {signIn,useSession,getProviders,getSession} from 'next-auth/react'
 import { useRouter } from 'next/router'
 import {useEffect} from 'react'
 
-export default function login({providers}) {
+export default function login({providers,session}) {
 	// body...
 	const router = useRouter();
-	const {data:session} = useSession();
 	const id = Object.values(providers).map((provider)=>provider.id)
 
 	console.log(session)
@@ -23,7 +22,7 @@ export default function login({providers}) {
 					className="w-[20rem]"
 					alt="..."/>
 					<button
-					onClick={()=>signIn(id,{callbackUrl:"/"})} 
+					onClick={()=>signIn()} 
 					className="bg-blue-500 rounded-full p-5 mt-5 text-white hover:scale-110
 					font-semibold transition ease-in-out duration-300" > 
 						Login With {Object.values(providers).map((provider)=>provider.name)}
@@ -36,7 +35,7 @@ export default function login({providers}) {
 
 export async function getServerSideProps(context){
 	const providers = await getProviders();
-	const session = await getSession();
+	const session = await getSession(context);
 	return{
 		props: {
 			providers,
