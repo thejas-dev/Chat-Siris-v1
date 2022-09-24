@@ -174,6 +174,7 @@ export default function ChatContainer() {
 			if(checked){
 				toast.error("Please Try Again!")
 				setChecked(false);
+				setPath2('');
 			}
 			const image_input = document.querySelector('#file2');
 			image_input.addEventListener('change',()=>{
@@ -278,13 +279,13 @@ export default function ChatContainer() {
 					<BiPhotoAlbum className="h-7 w-7 text-green-500 hover:scale-110 transition duration-400 ease-in-out"/>
 					</div>
 					<input type={`${loader ? "disabled" : "file"}`} id="file2" hidden accept="image/*" onChange={(e)=>setPath2(e.target.value)} />
-					<h2 className="text-xl text-white font-semibold ">Change Background Image /</h2>
+					<h2 className="text-md text-white font-semibold ">Change Background Image /</h2>
 					{
 						loader && <AiOutlineLoading3Quarters className="h-8 w-8 animate-spin text-orange-500"/>
 					}
 				</label>
 				<span className={`text-orange-500 ${loader ? "hidden" : ""}
-					hover:scale-120 transition duration-400 text-xl font-semibold ease-in-out`} onClick={resetBackground}><button>Reset</button></span> 
+					hover:scale-120 transition duration-400 text-md font-semibold ease-in-out`} onClick={resetBackground}><button>Reset</button></span> 
 
 			</div>
 			<div
