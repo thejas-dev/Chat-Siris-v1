@@ -177,16 +177,18 @@ export default function ChatContainer() {
 			// 	setPath2('');
 			// }
 			console.log("ram")
-			const image_input = document.querySelector('#file2');
-			image_input.addEventListener('change',()=>{
-				const reader = new FileReader();
-			
-				reader.addEventListener('load',()=>{
-					let uploaded_image = reader.result;
-					setUrl2(uploaded_image)
-				});
-				reader.readAsDataURL(image_input.files[0]);
-			})
+			setTimeout(function() {
+				const image_input = document.querySelector('#file2');
+				image_input.addEventListener('change',()=>{
+					const reader = new FileReader();
+				
+					reader.addEventListener('load',()=>{
+						let uploaded_image = reader.result;
+						setUrl2(uploaded_image)
+					});
+					reader.readAsDataURL(image_input.files[0]);
+				})				
+			}, 2000);
 		}
 	},[path2])
 
