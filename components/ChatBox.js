@@ -295,7 +295,7 @@ useEffect(()=>{
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
 				className={`md:hidden fixed h-7 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-7 text-blue-700  left-0 transition duration-700 ease-in-out `} />
-			<br/><br/><br/><br/><br/>
+			<br/><br/><br/>
 			<Container>
 			
 			<div className="chats flex flex-col mt-7">
