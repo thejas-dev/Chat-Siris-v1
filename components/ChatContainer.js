@@ -180,15 +180,17 @@ export default function ChatContainer() {
 			// setTimeout(function() {
 			// 	console.log("try again")
 				const image_input = document.querySelector('#file2');
-				image_input.addEventListener('change',()=>{
-					const reader = new FileReader();
-				
-					reader.addEventListener('load',()=>{
-						let uploaded_image = reader.result;
-						setUrl2(uploaded_image)
-					});
-					reader.readAsDataURL(image_input.files[0]);
-				})				
+				if(image_input){
+					image_input.addEventListener('change',()=>{
+						const reader = new FileReader();
+					
+						reader.addEventListener('load',()=>{
+							let uploaded_image = reader.result;
+							setUrl2(uploaded_image)
+						});
+						reader.readAsDataURL(image_input.files[0]);
+					})
+				}
 		// 	}, 2000);
 		// }
 	},[path2])
