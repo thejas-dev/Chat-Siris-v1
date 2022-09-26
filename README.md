@@ -2,6 +2,7 @@
 
 [chat-siris-v1](https://chat-siris-v1.vercel.app)
 
+Upgraded Version of [chat-bro-1](https://github.com/thejas-dev/Chat-Bro-Web-App)
 
 Chatting Web Application With Media Sharing Facility .... Google Authentication and Encrypted Media Transfer... Responsive UI design Powered By Tailwind CSS... 
 
