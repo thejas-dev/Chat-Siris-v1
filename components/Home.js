@@ -55,10 +55,10 @@ const Container = styled.div`
 
 export default function Home({session}) {
 	const[currentUser,setCurrentUser] = useRecoilState(currentUserState);
-	const[contacts,setContacts] = useState(null);
 	const[currentChat,setCurrentChat] = useRecoilState(currentChatState);
 	const[reveal,setReveal] = useRecoilState(revealState);
 	const [search,setSearch] = useRecoilState(searchState);
+	const[contacts,setContacts] = useState();
 	const router = useRouter();
 	useEffect(()=>{
 		if(session){
@@ -94,23 +94,34 @@ export default function Home({session}) {
 	useEffect(()=>{
 		if(currentUser && currentUser.recentChats.length > 0){
 			if(!contacts){
-			const result = [];
-			const fetching = async()=>{
-				const data = await currentUser.recentChats.map((recentChat)=>{
-					const fetch =async()=>{
-						let data = await axios.get(`${allUsersRoute}/${currentUser?._id}/${recentChat}`)
-						result.unshift(data.data[0])
-					}
-				fetch();
-				});
-				setContacts(result)
-			}
-			fetching();
+				const result = [];
+				const fetching = async()=>{
+					const response = await currentUser.recentChats.map((recentChat)=>{
+						const fetch =async()=>{
+							let {data} = await axios.get(`${allUsersRoute}/${currentUser?._id}/${recentChat}`)
+							result.unshift(data[0])
+						}
+					fetch();
+					});
+					setContacts(result)
+				}
+				fetching();				
 			}
 		}
 	},[currentUser])
 
 
+	const currentChatFetch = async(data) =>{
+		const result = [];
+		const response = await data.recentChats.map((recentChat)=>{
+			const fetch =async()=>{
+				let {data} = await axios.get(`${allUsersRoute}/${currentUser?._id}/${recentChat}`)
+				result.unshift(data[0])
+			}
+		fetch();
+		});
+		setContacts(result)
+	}
 
 	useEffect(()=>{
 		setReveal(false)
@@ -121,40 +132,29 @@ export default function Home({session}) {
 					const currentChatid = currentChat._id.split();
 					if(existRecentChat.includes(currentChat._id) === false){
 						existRecentChat = currentChatid.concat(existRecentChat)
+						let currentChatArray = existRecentChat;
+						const {data} = await axios.post(`${setRecentChatRoute}/${currentUser?._id}`,{
+							chatId:currentChatArray,
+						})
+						currentChatFetch(data);	
 					}
+					handleValidation();
 				}else{
-					existRecentChat = currentChat?._id
-				}
-				let currentChatArray = existRecentChat;
-				const {data} = await axios.post(`${setRecentChatRoute}/${currentUser?._id}`,{
-					chatId:currentChatArray,
-				})
-				currentChatFetch(data);
-				
+					let currentChatArray = currentChat._id.split();
+					const {data} = await axios.post(`${setRecentChatRoute}/${currentUser?._id}`,{
+						chatId:currentChatArray,
+					})
+					console.log(data)
+					currentChatFetch(data);	
+					handleValidation();
+				}								
 			}
 			fetch();
 			setSearch('')
 		}
 	},[currentChat])
 
-	const currentChatFetch = async(data) =>{
-		const result = [];
-		const fetching = async()=>{
-			const data = await data.recentChats.map((recentChat)=>{
-				const fetch =async()=>{
-					console.log(recentChat)
-					let data = await axios.get(`${allUsersRoute}/${currentUser?._id}/${recentChat}`)
-					console.log(data)
-					result.unshift(data.data[0])
-				}
-			fetch();
-			});
-			setContacts(result)
-			console.log(result)
-		}
-		fetching();
-	}
-
+	
 
 	useEffect(()=>{
 		if(reveal){

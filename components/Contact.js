@@ -19,6 +19,8 @@ export default function Contact(contact,key) {
 			}	
 		}
 	},[currentChat])
+	
+
 	const defaultStyle={
 		background:"#f0eded",
 		transition:"all",

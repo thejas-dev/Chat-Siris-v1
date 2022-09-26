@@ -47,7 +47,7 @@ export default function ChatBox({handleSendMsg,messages,scrollRef,currentUser}) 
 	const [revealRec,setRevealRec] = useState(false);
 	const[isRecording,setIsRecording]= useState(false);
     const[isBlocked,setIsBlocked] = useState(false);
-      
+    const[time,setTime] = useState(true);
 	
 	const handleClose = () => {
 	    setOpen(false);
@@ -61,6 +61,47 @@ export default function ChatBox({handleSendMsg,messages,scrollRef,currentUser}) 
 		setRevealRec(true);
 		start();
 	}
+
+	const dateToTime = () =>{
+		setTime(!time);
+	}
+
+	function dConvert(i) {
+		let split=i.split('T');
+		const date = split[0];
+		return date;
+	}
+
+	function tConvert(i) {
+	let split = i.split('T');
+	const date = split[0];
+	let time = split[1].split('.')[0]
+    // Check correct time format and split into components
+    time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+    if (time.length > 1) { // If time format correct
+      time = time.slice(1); // Remove full string match value
+
+
+      time[2] = Number(time[2]) + 30;
+
+      if(Number(time[2])>60){
+      	time[2] = Number(time[2]) -60
+      	if(time[2]<10){
+      		time[2] = 0+ time[2].toString()
+      	}
+      	time[0] = Number(time[0]) + 1
+      }
+
+      time[0] = Number(time[0]) + 5;
+      time[5] = +time[0] < 12 || time[0] === 24 ? ' AM' : ' PM'; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+      
+      time.splice(3,1)
+      
+    }
+    return time.join(''); // return adjusted time or original string
+  	}
 
 	var imagekit = new ImageKit({
 	    publicKey : process.env.NEXT_PUBLIC_IMAGEKIT_ID,
@@ -301,30 +342,32 @@ useEffect(()=>{
 			<div className="chats flex flex-col mt-7">
 				{messages?.map((message,index)=>{
 					return(
-					<div ref={scrollRef}>
+					<div ref={scrollRef} className={` ${message.fromSelf? "hover:mr-5 transition-all duration-500 ease-in-out " : "hover:ml-5 transition-all duration-500 ease-in-out " }`} >
 						<div className={`flex ${message.fromSelf? "justify-end" : "justify-start" }`}>
 						{
 							Linkcheck(message.message) ?
 							Audiocheck(message.message) ?
-							<div className={`rounded-3xl shadow-xl
+							<div className={`rounded-3xl shadow-xl relative
 							${message.fromSelf ? "text-slate-700 bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l from-[#e34bb0] to-[#f23081] border-green-600"} 
 							p-[2px] m-2	border-2 max-w-sm md:max-w-2xl 
 							`}>
 								<audio src={message.message} controls className="rounded-3xl" />
+								<span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-300" : "text-slate-200"} absolute right-4 bottom-0 text-[11px] `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span>
 							</div>
 							:
 							<div className= {`rounded-3xl shadow-xl
 							${message.fromSelf ? "text-slate-700 bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l from-[#e34bb0] to-[#f23081] border-green-600"} 
-							p-[2px] m-2	border-2 max-w-sm md:max-w-2xl md:p-2
+							p-[2px] m-2	border-2 items-end gap-1 flex flex-col max-w-sm md:max-w-2xl md:p-2
 							`}>
 							<img className="rounded-3xl" src={message.message} alt='' />
+							<span onClick={dateToTime}  className={` ${message.fromSelf ? "text-gray-500" : "text-slate-200"} text-[13px] mr-2 `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span>
 							</div>
 
-							: <div className={`rounded-3xl shadow-xl
-							${message.fromSelf ? "text-slate-700 bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l from-[#e34bb0] to-[#f23081] border-indigo-600"} 
-							p-[8px] m-2	border-2 max-w-sm md:max-w-2xl overflow-hidden
+							: <div className={`relative rounded-3xl shadow-xl
+							${message.fromSelf ? "text-slate-700 flex bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l flex from-[#e34bb0] to-[#f23081] border-indigo-600"} 
+							p-[8px] m-2	border-2  items-end gap-2 max-w-sm md:max-w-2xl overflow-hidden
 							`} 
-							>{message.message}</div>
+							><p>{message.message}</p><span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-500" : "text-slate-200"} text-[12px] `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span></div>
 						}
 												
 						</div>

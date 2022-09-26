@@ -104,7 +104,7 @@ export default function ChatContainer() {
 			message:msg,
 		})
 		const msgs = [...messages];
-		msgs.push({fromSelf:true,message:msg});
+		msgs.push({fromSelf:true,message:msg,updatedAt:new Date().toISOString()});
 		setMessages(msgs);
 	}
 
@@ -127,6 +127,7 @@ export default function ChatContainer() {
 				setArrivalMessage({
 					fromSelf:false,
 					message:msg,
+					updatedAt:new Date.now().toISOString()
 				})
 			})
 		}

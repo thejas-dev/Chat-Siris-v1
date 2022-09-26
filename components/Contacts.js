@@ -5,7 +5,7 @@ import Contact from './Contact';
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 import {searchUsersRoute} from '../utils/ApiRoutes';
-import {searchState,revealState} from '../atoms/userAtom';
+import {searchState,contactsState,revealState} from '../atoms/userAtom';
 import {useRecoilState} from 'recoil'
 import searchRobo from '../assets/search.gif'
 import {BiSearchAlt} from 'react-icons/bi'
@@ -39,7 +39,6 @@ export default function Contacts({contacts,currentUser}) {
 	const [contacts2,setContacts2] = useState([]);
 	const [contacts3,setContacts3] = useState(['sdsadsa']);
 
-
 	
 	// rerender this component after 1s & 5s loading the page
 	useEffect(()=>{
@@ -62,7 +61,10 @@ export default function Contacts({contacts,currentUser}) {
 	useEffect(()=>{
 		setTimeout(function() {
 			setContacts3([])
-		}, 10);
+		}, 500);
+		setTimeout(function() {
+			setContacts3([])
+		}, 5000);
 	},[contacts])
 	const Search = async(e) =>{
 		if(e.target.value.length>1){
