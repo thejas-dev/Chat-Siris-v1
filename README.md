@@ -8,7 +8,7 @@ Chatting Web Application With Media Sharing Facility .... Google Authentication 
 
 ## Google Authentication
 
-Google Authentication for Authenticate .... Automatic Registration of Account and Automatic Login.. No need to Enter Crediential Every Time You ReEnter...
+Google Authentication for Safe and Fast Authentication.... Automatic Registration of Account and Automatic Login.. No need to Enter Credientials Every Time...
 
 
 ## Media Sharing Feature
