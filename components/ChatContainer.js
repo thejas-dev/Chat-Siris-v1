@@ -127,7 +127,7 @@ export default function ChatContainer() {
 				setArrivalMessage({
 					fromSelf:false,
 					message:msg,
-					updatedAt:new Date.now().toISOString()
+					updatedAt:new Date().toISOString()
 				})
 			})
 		}

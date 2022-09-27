@@ -144,7 +144,6 @@ export default function Home({session}) {
 					const {data} = await axios.post(`${setRecentChatRoute}/${currentUser?._id}`,{
 						chatId:currentChatArray,
 					})
-					console.log(data)
 					currentChatFetch(data);	
 					handleValidation();
 				}								
