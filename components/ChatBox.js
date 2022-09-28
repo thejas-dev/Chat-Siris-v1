@@ -335,7 +335,7 @@ useEffect(()=>{
 			}
 			<BiMenuAltLeft 
 				onClick={()=>setReveal(true)}
-				className={`md:hidden fixed h-8 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-8 text-white left-0 transition duration-700 ease-in-out `} />
+				className={`md:hidden  z-20 fixed h-8 ${reveal ? "top-[-10vh]" : "top-[9vh]" } cursor-pointer w-8 text-white left-0 transition duration-700 ease-in-out `} />
 			<br/><br/><br/>
 			<Container>
 			
@@ -352,7 +352,7 @@ useEffect(()=>{
 							p-[2px] m-2	border-2 max-w-sm md:max-w-2xl 
 							`}>
 								<audio src={message.message} controls className="rounded-3xl" />
-								<span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-300" : "text-slate-200"} absolute right-4 bottom-0 text-[11px] `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span>
+								<span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-500" : "text-slate-500"} absolute right-4 bottom-0 text-[11px] `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span>
 							</div>
 							:
 							<div className= {`rounded-3xl shadow-xl
@@ -367,7 +367,7 @@ useEffect(()=>{
 							${message.fromSelf ? "text-slate-700 flex bg-white border-blue-500" : "text-slate-100 bg-gradient-to-l flex from-[#e34bb0] to-[#f23081] border-indigo-600"} 
 							p-[8px] m-2	border-2  items-end gap-2 max-w-sm md:max-w-2xl overflow-hidden
 							`} 
-							><p>{message.message}</p><span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-500" : "text-slate-200"} text-[12px] `} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span></div>
+							><p>{message.message}</p><span onClick={dateToTime} className={` ${message.fromSelf ? "text-gray-500" : "text-slate-200"} text-[12px] whitespace-nowrap`} >{time? tConvert(message.updatedAt) : dConvert(message.updatedAt)}</span></div>
 						}
 												
 						</div>
